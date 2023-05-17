@@ -9,6 +9,8 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
     <script src="main.js" defer></script>
   </head>
   <body>
@@ -18,17 +20,21 @@
         <button class="game__button">
           <i class="fas fa-play"></i>
         </button>
-        <span class="game__timer"> 00:00 </span>
-        <span class="game__score">0</span>
+        <button class="game__info game__info__hide">
+          <i class="fas fa-info-circle"></i>
+        </button>
+        <span class="game__information">
+          <i class="far fa-times-circle"></i>
+        </span>
+        <span class="game__timer">0</span>
+        <span class="game__score"></span>
       </header>
       <section class="game__field">
-        <!-- <img class="teemo" src="./img/teemo_F.png" alt=""> -->
         <img class="bush" src="./img/bush_hide.png" alt="">
         <img class="bush" src="./img/bush_hide.png" alt="">
         <img class="bush" src="./img/bush_hide.png" alt="">
         <img class="bush" src="./img/bush_hide.png" alt="">
         <img class="bush" src="./img/bush_hide.png" alt="">
-        <!-- <img class="garen" src="./img/garen_1.png" alt=""> -->
       </section>
     </section>
     <section class="pop-up pop-up--hide">
