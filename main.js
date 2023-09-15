@@ -19,12 +19,12 @@ const game = document.querySelector('.game');
 const gameBtn = document.querySelector('.game__button');
 const gameInfo = document.querySelector('.game__info')
 const gamePopUp = document.querySelector('.game__information')
-const gamePopUpHide = document.querySelector('.fa-times-circle')
+const gamePopUpHide = document.querySelector('.game__info__finish')
 const timerIndicator = document.querySelector('.game__timer');
 const gameScore = document.querySelector('.game__score');
 
 const bush = document.querySelectorAll('.bush');
-const bush_x = [bush[0].getBoundingClientRect().left - fieldRect.left, bush[1].getBoundingClientRect().x - fieldRect.left, bush[2].getBoundingClientRect().left - fieldRect.left, bush[3].getBoundingClientRect().left - fieldRect.left, bush[4].getBoundingClientRect().left - fieldRect.left] 
+const bush_x = [bush[0].getBoundingClientRect().left - fieldRect.left, bush[1].getBoundingClientRect().x - fieldRect.left, bush[2].getBoundingClientRect().left - fieldRect.left, bush[3].getBoundingClientRect().left - fieldRect.left, bush[4].getBoundingClientRect().left - fieldRect.left]
 const bush_y = bush[0].getBoundingClientRect().y - fieldRect.height;
 const bush_open = [bush[0].getBoundingClientRect().left, bush[1].getBoundingClientRect().left, bush[2].getBoundingClientRect().left, bush[3].getBoundingClientRect().left, bush[4].getBoundingClientRect().left] 
 
@@ -58,10 +58,18 @@ popUpRefresh.addEventListener('click', () => {
 });
 
 gameInfo.addEventListener('click',()=>{
-  gamePopUp.style.display = 'block';
+  stopGame()
+  hidePopUp();
+  gamePopUp.style.display = 'flex';
+  gameInfo.style.fieldRect = 'column';
+  gameInfo.style.alignItems = 'center';
+  // gamePopUp.style.justifyContent = 'space-around';
   gameInfo.style.visibility = 'hidden';
 })
+
 gamePopUpHide.addEventListener('click',()=>{
+  // showPopUpWithText('시작!');
+  startGame()
   gamePopUp.style.display = 'none';
   gameInfo.style.visibility = 'visible';
 })
@@ -69,9 +77,6 @@ gamePopUpHide.addEventListener('click',()=>{
 function startGame() {
   started = true;
   keyD = true;
-  gameScore.style.opacity = 1;
-  timerIndicator.style.opacity = 1;
-  
   initGame();
   showStopButton();
   showTimerAndScore();
@@ -118,7 +123,9 @@ function hideGameButton() {
 
 function showTimerAndScore() {
   timerIndicator.style.visibility = 'visible';
+  timerIndicator.style.opacity = 1;
   gameScore.style.visibility = 'visible';
+  gameScore.style.opacity = 1;
 }
 
 function startGameTimer() {
@@ -152,6 +159,7 @@ function showPopUpWithText(text) {
 function hidePopUp() {
   popUp.classList.add('pop-up--hide');
 }
+
 
 function playSound(sound) {
   sound.currentTime = 0;
@@ -248,12 +256,14 @@ function onFieldMove() {
   const bush = document.querySelectorAll('.bush');
   const teemoLeft = teemo.getBoundingClientRect().left;
   const garenLeft = garen.getBoundingClientRect().left;
+  
 
   for(let i=0; i < mushroom.length; i++){
     if(mushroom[i].getBoundingClientRect().left === teemoLeft ){
+      mushroom[i].style.top = `${bush_y - 25}px `
       mushroom[i].style.opacity = 1;
       mushroom[i].style.scale = 1.3;
-      mushroom[i].style.top = `${bush_y - 25}px`
+      
       popUp.style.zIndex=99;
       playSound(effectSound);
       score++

@@ -8,12 +8,16 @@ body {
   font-family: 'Russo One', sans-serif;
 }
 
+p{
+ margin: 0;
+}
+
 button {
   outline: none;
   cursor: pointer;
   border: none;
   background: white;
-  border-radius: 20%;
+  /* border-radius: 20%; */
   padding: 0;
 }
 
@@ -44,6 +48,7 @@ header{
   font-size: 24px;
   background-color:#E0E0F8;
   border: 3px solid black;
+  border-radius: 20%;
   /* transform:translateX(30%); */
   transition: transform 100ms ease-in;
 }
@@ -60,27 +65,101 @@ header{
 }
 .game__information{
   display:none;
+  justify-content: center;
+  align-items: center;
   position:absolute;
-  left:20%;
-  top:16%;
+  color:#fff;
+  text-align: center;
+  left:0%;
+  top:0%;
   opacity:1;
-  background-color: white;
-  width: 500px;
-  height: 400px;
+  font-family:'Gothic A1', sans-serif;
+  background-color: rgba(1,10,19, 1);
+  width: 800px;
+  height: 500px;
   z-index: 99;
 }
 
-.game__information > i {
-  position : absolute;
-  left: 100%;
-  top: -10%;
-  font-size: 55px;
+.game__information > h2 {
+  text-align: left;
+  margin-left: 20px;
 }
+
+.game__information > p{
+  margin-top: 30px;
+  margin-left : 20px;
+  color:#fff;
+}
+
+.game__information__detail {
+  display: flex;
+  flex-direction: column;  justify-content: flex-end;
+  align-items: center;
+  margin-top : 30px;
+  margin-left : 20px;
+
+}
+
+.game__information > .fa-times-circle {
+  position : absolute;
+  left: 50%;
+  top: -0%;
+  font-size: 55px;
+  cursor:pointer;
+  color:#fff;
+}
+
+.game__info__finish{
+  position:relative;
+  width: 100px;
+  border: 3px solid rgba(120,90,40, 1);
+  border-radius: none;
+  background-color: transparent;
+  color: rgb(207, 207, 207);
+  font-weight: bolder;
+  padding:5px 10px;
+  transition: 0.3s;
+  margin-top: 80px;
+}
+
+.arrow:hover,
+.game__info__finish:hover{
+  border: 3px solid rgba(172,129,57, 1);
+  background-color: rgb(2, 22, 39);
+  color: #fff;
+}
+.subtitle{
+  font-weight: bolder;
+  position:relative;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.subtitle__contents {
+  margin: 5px;
+}
+
+.control {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.arrow{
+  border: 3px solid rgba(120,90,40, 1);
+  font-size:20px;
+  padding-top: 35px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  transition: 0.3s;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 .game__button:hover,
 .game__info:hover{
   transform: scale(1.1);
 }
-
 
 
 .game__timer {
@@ -91,9 +170,6 @@ header{
   margin: auto;
   margin-top: 8px;
   padding: 0 20px;
-  /* border: 5px solid black;
-  background-color: white;
-  border-radius: 10px; */
   font-size: 32px;
   color: #fff;
 }
@@ -117,9 +193,8 @@ header{
   opacity: 0;
   font-size: 16px;
   font-weight: lighter;
+  /* line-height: 300%; */
   font-family:'Gothic A1', sans-serif;
-  vertical-align: middle;
-  margin-top: 4px;
   background-color: rgba(0,0,0, 0.5);
   color: white;
   user-select: none;
@@ -130,6 +205,7 @@ header{
 .blue{
   display:inline-block;
   color: #66c7ff;
+  margin-top: 10px;
 }
 
 .game__field {
@@ -163,6 +239,7 @@ header{
   font-size: 24px;
   background-color: #E0E0F8;
   border: 2px solid black;
+  border-radius: 20%;
   transition: transform 100ms ease-in;
 }
 
